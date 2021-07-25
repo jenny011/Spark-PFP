@@ -1,8 +1,11 @@
 # Spark-PFP
-A Python implementation of PFP and IncMiningPFP on Spark (v2.7.0).
+A Python implementation of PFP and IncMiningPFP on Spark (v2.7.0). <br>
+The original algorithms are based on MapReduce. <br>
+Spark is an efficient big data engine that provides the MapReduce model. <br>
+Spark RDD allows fast memory access while Hadoop MapReduce doesn not.
 
 ## Environment Setup
-We use an Aliyun ROS template to setup a Spark cluster on cloud. <br>
+We use an [Alibaba Cloud ROS template](https://rosnext.console.aliyun.com/cn-qingdao/samples/Spark_Hadoop_Ecs_Instance_Group) to setup a Spark cluster on cloud. <br>
 The cluster includes HDFS. <br>
 In the parent directory of PFP and IncMiningPFP, `$ mkdir exp_output`. <br>
 For IncMiningPFP, make a directory called `data` in the HDFS root directory.
@@ -19,6 +22,6 @@ For IncMiningPFP, upload `incdatasets/` to `hdfs:///`.
 1. Start Spark and HDFS.
 2. Run `$ sh run.sh` at the master node.
 
-`run.sh` specifies all the configurations including minimum supports, incremental sizes and number of executions. <br>
+`run.sh` specifies all the configurations including minimum supports, target datasets, incremental chunk sizes and number of executions. <br>
 We use one core per node. <br>
 We allocate 61G memory to the master node and 14G memory to each worker node.
