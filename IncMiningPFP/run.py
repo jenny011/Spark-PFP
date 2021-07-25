@@ -26,10 +26,7 @@ def main():
     # --------------------- SPARK setup ---------------------
     # --------------------- SPARK setup ---------------------
     conf = SparkConf().setAppName("IncMiningPFP")
-    # conf.set("spark.hadoop.validateOutputSpecs", "false")
-    # conf.set("spark.default.parallelism", str(partition))
     sc = SparkContext.getOrCreate(conf=conf)
-    # sc.setLogLevel("INFO")
 
     spark = SparkSession(sc)
     schema = StructType([
@@ -46,7 +43,6 @@ def main():
     # --------------- exp MACROS ----------------
     min_sup = support/100
 
-    #dbSize = countDB(dbdir, database, interval)
     dbFile = sc.textFile(os.path.join(dbdir, "interval_{0}_0/db_0.txt".format(database)))
     dbSize = dbFile.count()
     minsup = min_sup * dbSize
@@ -57,7 +53,6 @@ def main():
         max_number = math.ceil(dbSize / int(interval))
 
     resultPath = "hdfs:///data/{0}_{1}_{2}_{3}".format(database, support, interval, partition)
-    # flistPath = f"hdfs://master.hadoop:7077/data/{database}_{support}_{interval}_{partition}/flist.json"
 
     # --------------- RUN exp ----------------
     # --- base ---

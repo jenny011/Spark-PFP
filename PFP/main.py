@@ -17,10 +17,6 @@ def pfp(dbPath, min_sup, sc, partition, minsup, oldFMap, oldDB=None):
     dbSize = dbFile.count()
     db = dbFile.map(lambda r: r.split(" ")).cache()
 
-    # dbList = scanDB(dbPath)
-    # dbSize = len(dbList)
-    # db = sc.parallelize(dbList).cache()
-
     # INC: merge DB
     if oldDB:
         db = sc.union([db, oldDB]).cache()

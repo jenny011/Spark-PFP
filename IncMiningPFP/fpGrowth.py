@@ -96,12 +96,6 @@ def buildAndMine(gid, db, minsup, basePtn=''):
 		fpTree = buildFPTree(db, dbItems, minsup)
 	results = mineAll(fpTree, minsup, basePtn)
 
-	#resRDD = sc.parallelize(results)
-	#resRDD.saveAsTextFile(resultPath + "_" + str(gid) + ".txt")
-	#
-	# with open(resultPath + "_" + str(gid) + ".txt", 'w') as outputf:
-	#     outputf.write("\n".join(results))
-
 	return results
 
 
@@ -169,12 +163,6 @@ def checkBuildAndMine(oldResults, incFlist, gItems, gid, db, minsup, basePtn='')
 			if item not in oldResults:
 				mergedResults.append(item)
 		mergedResults.extend(oldResults)
-
-		# resRDD = sc.parallelize(mergedResults)
-		# resRDD.saveAsTextFile(resultPath + "_" + str(gid) + ".txt")
-
-		# with open(resultPath + "_" + str(gid) + ".txt", 'w') as outputf:
-		# 	outputf.write("\n".join(mergedResults))
 
 		return mergedResults
 	return False

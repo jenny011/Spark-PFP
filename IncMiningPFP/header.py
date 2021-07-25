@@ -4,14 +4,9 @@ class Header():
 
     def __init__(self, key, link = None):
       self._key = key
-      # self._count = count
       self._next = link
 
-    # def __gt__(self, other):
-    #   return self._count > other._count
-
     def __repr__(self):
-      # return '({0}: {1})'.format(self._key, self._count)
       return str(self._key)
 
 class HeaderTable():
@@ -36,10 +31,6 @@ class HeaderTable():
     def keys(self):
         for header in self.headers():
             yield header._key
-
-    # def counts(self):
-    #     for header in self.headers():
-    #         yield header._count
 
     def insert(self, key):
         header = Header(key)

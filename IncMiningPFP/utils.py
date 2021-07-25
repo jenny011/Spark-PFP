@@ -32,12 +32,6 @@ def sortByFlist(trx, Flist):
         if i in Flist:
             temp.append(i)
     return sorted(temp, key = lambda i: Flist[i])
-    # # NO duplicate items in a trx
-    # sortedTrx = []
-    # for i in Flist:
-    #     if i in trx:
-    #         sortedTrx.append(i)
-    # return sortedTrx
 
 def groupDependentTrx(trx, itemGidMap):
     GTrxMap = {}
@@ -46,18 +40,6 @@ def groupDependentTrx(trx, itemGidMap):
         GTrxMap[gid] = trx[:i+1]
     return [(k,v) for k, v in GTrxMap.items()]
 
-# def writeFlistToJSON(Flist, fpath):
-#     Fdict = {'item':[], 'count':[]}
-#     for kv in Flist:
-#         Fdict['item'].append(kv[0])
-#         Fdict['count'].append(kv[1])
-#     df = pd.DataFrame(Fdict)
-#     df.to_json(fpath)
-#
-# def readFlistFromJSON(fpath):
-#     df = pd.read_json(fpath)
-#     Flist = df.set_index('item')['count'].to_dict()
-#     return Flist
 
 def writeFMapToJSON(FMap, fpath):
     with open(fpath, 'w') as f:

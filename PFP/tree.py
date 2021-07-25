@@ -125,18 +125,11 @@ class FPTree(Tree):
 
     # Add one transaction or conditional pattern base
     def add(self, line, count):
-        # if record:
-        #     f = open('fpGrowthExp/retail50_01/insert.txt', 'a')
-        #     start = time()
         sortedLine = []
         for key in self.headerTable.keys():
             if key in line:
                 sortedLine.append(key)
         self.insert(self._root, sortedLine, count)
-        # if record:
-        #     end = time()
-        #     f.write(str(end - start) + '\n')
-        #     f.close()
 
     # Get the prefix path which can be readily used added to the conditional pattern base
     def prefix_path(self, node):
@@ -169,7 +162,4 @@ class FPTree(Tree):
         r = ''
         for node in self.iter_ll(key):
             r += '(' + node._key + ',' + str(node._count) + ') '
-        # r = 0
-        # for node in self.iter_ll(key):
-        #     r += node._count
         return r

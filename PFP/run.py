@@ -7,12 +7,6 @@ import os, json, argparse, math
 from main import pfp
 from utils import countDB
 
-# memory = 32
-# pyspark_submit_args = f' --driver-memory {memory}g pyspark-shell'
-# pyspark_submit_args = f' --executor-memory {memory}g pyspark-shell'
-# os.environ["PYSPARK_SUBMIT_ARGS"] = pyspark_submit_args
-# os.environ["PYTHONHASHSEED"]=str(232)
-
 parser = argparse.ArgumentParser(description='argparse')
 parser.add_argument('--database', '-d', help='database name', required=True)
 parser.add_argument('--support', '-m', type=int, help='min support percentage', required=True)
@@ -49,7 +43,6 @@ def main():
     # --------------- exp MACROS ----------------
     min_sup = support/100
 
-    #dbSize = countDB(dbdir, database, interval)
     dbFile = sc.textFile(os.path.join(dbdir, "interval_{0}_0/db_0.txt".format(database)))
     dbSize = dbFile.count()
     minsup = min_sup * dbSize
