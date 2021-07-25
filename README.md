@@ -11,7 +11,7 @@ In the parent directory of PFP and IncMiningPFP, `$ mkdir exp_output`. <br>
 For IncMiningPFP, make a directory called `data` in the HDFS root directory.
 
 ## Prepare Datasets
-We obtain the datasets from the [SPMF](http://www.philippe-fournier-viger.com/spmf/index.php?link=datasets.php) library. <br>
+We obtain the datasets (retail, kosarak, chainstore, RecordLink) from the [SPMF](http://www.philippe-fournier-viger.com/spmf/index.php?link=datasets.php) library. <br>
 To generate incremental datasets from the original datasets, run `gen.sh` in `splitdb/`. <br>
 It splits the original dataset into multiple incremental chunks of a fixed size. <br>
 Put the datasets in `incdatasets/` directory. <br>
