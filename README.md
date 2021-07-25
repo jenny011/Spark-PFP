@@ -18,6 +18,7 @@ For IncMiningPFP, upload `incdatasets/` to `hdfs:///`.
 ## Run the Algorithms
 1. Start Spark and HDFS.
 2. Run `$ sh run.sh` at the master node.
+
 `run.sh` specifies all the configurations including minimum supports, incremental sizes and number of executions. <br>
 We use one core per node. <br>
 We allocate 61G memory to the master node and 14G memory to each worker node.
